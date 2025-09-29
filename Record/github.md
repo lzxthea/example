@@ -1,6 +1,6 @@
-# github与vscode配置
+# 机器学习环境配置
 
-## github下载与克隆仓库
+## github下载与使用
 
 1. 在 GitHub 上创建新仓库
    1. 访问 [GitHub](https://github.com/?lang=zh-CN&open_in_browser=true) 并登录账号。
@@ -55,3 +55,35 @@
         cd yourrepository
         ```
    2. 从别人的仓库复制所需文件
+        ```
+        wget https://raw.githubusercontent.com/otherusername/otherrepository/master/example.py
+        ```
+   3. 将别人的整个仓库作为子目录添加到你的仓库中
+        ```
+        git remote add -f otherrepo https://github.com/otherusername/otherrepository.git
+        git subtree add --prefix=subdirectory otherrepo master --squash
+        ```
+
+## conda下载与使用
+1. miniconda/anaconda 下载
+   1. https://anaconda.org/miniconda/miniconda
+   2. 选择对应的操作系统和版本，下载安装包。
+   3. 运行安装程序，按照提示进行安装。
+   4. 重新打开终端，输入 conda --version 来检查是否安装成功。
+   5. 创建新环境
+      1. 输入以下命令来创建一个新的 Python 3.10 环境：
+         ```
+         conda create -n mypy310 python=3.10
+         ```
+   6. 激活环境
+      1. 输入以下命令来激活新创建的环境：
+         ```
+         conda activate mypy310
+         ```
+   7. 安装所需库
+      1. 在激活的环境中，使用 conda 来安装所需的库。例如，安装 NumPy：
+         ```
+         conda install numpy
+         conda install -c conda-forge scikit-learn
+         ```
+   8. 验证安装
